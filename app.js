@@ -77,7 +77,7 @@ app.get("/campgrounds/new", function (req, res) {
 
 // SHOW route
 app.get("/campgrounds/:id", function (req, res) {
-    res.send("THIS WILL BE THE SHOW PAGE ONE DAY!");
+    res.render("show");
 });
 
 app.listen(3000, function () {
