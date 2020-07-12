@@ -14,13 +14,18 @@ app.set("view engine", "ejs");
 
 const campgroundSchema = new mongoose.Schema({
     name: String,
-    image: String
+    image: String,
+    description: String
 });
 
 const Campground = mongoose.model("Campground", campgroundSchema);
 
 // Campground.create(
-//     { name: "Granite Hill", image: "https://www.nps.gov/subjects/camping/images/site-number_2.jpg?maxwidth=1200&maxheight=1200&autorotate=false" },
+//     {
+//         name: "Granite Hill",
+//         image: "https://www.nps.gov/subjects/camping/images/site-number_2.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
+//         description: "This is a huge granite hill, no bathrooms. No water. beautiful granite!"
+//     },
 //     function (err, campground) {
 //         if (err) {
 //             console.log(err);
@@ -40,6 +45,7 @@ app.get("/", function (req, res) {
     res.render("landing");
 });
 
+// INDEX route
 app.get("/campgrounds", function (req, res) {
     Campground.find({}, function (err, allCampgrounds) {
         if (err) {
@@ -50,6 +56,7 @@ app.get("/campgrounds", function (req, res) {
     });
 });
 
+// CREATE route
 app.post("/campgrounds", function (req, res) {
     const name = req.body.name;
     const image = req.body.image;
@@ -63,8 +70,14 @@ app.post("/campgrounds", function (req, res) {
     });
 });
 
+// NEW route
 app.get("/campgrounds/new", function (req, res) {
     res.render("new.ejs");
+});
+
+// SHOW route
+app.get("/campgrounds/:id", function (req, res) {
+    res.send("THIS WILL BE THE SHOW PAGE ONE DAY!");
 });
 
 app.listen(3000, function () {
