@@ -19,16 +19,16 @@ const campgroundSchema = new mongoose.Schema({
 
 const Campground = mongoose.model("Campground", campgroundSchema);
 
-Campground.create(
-    { name: "Granite Hill", image: "https://www.nps.gov/subjects/camping/images/site-number_2.jpg?maxwidth=1200&maxheight=1200&autorotate=false" },
-    function (err, campground) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("NEWLY CREATED CAMPGROUND: ");
-            console.log(campground);
-        }
-    });
+// Campground.create(
+//     { name: "Granite Hill", image: "https://www.nps.gov/subjects/camping/images/site-number_2.jpg?maxwidth=1200&maxheight=1200&autorotate=false" },
+//     function (err, campground) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log("NEWLY CREATED CAMPGROUND: ");
+//             console.log(campground);
+//         }
+//     });
 
 const campgrounds = [
     { name: "Salmon Creek", image: "https://cdn.shopify.com/s/files/1/2468/4011/products/campsite_1_600x.png?v=1582785589" },
@@ -54,8 +54,13 @@ app.post("/campgrounds", function (req, res) {
     const name = req.body.name;
     const image = req.body.image;
     const newCampground = { name: name, image: image };
-    campgrounds.push(newCampground);
-    res.redirect("/campgrounds");
+    Campground.create(newCampground, function (err, newlyCreated) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect("/campgrounds");
+        }
+    });
 });
 
 app.get("/campgrounds/new", function (req, res) {
