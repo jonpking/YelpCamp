@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Campground = require("./models/campground");
+const seedDB = require("./seeds");
 
 mongoose.connect("mongodb://localhost:27017/yelp_camp", {
     useNewUrlParser: true,
@@ -13,26 +14,7 @@ mongoose.connect("mongodb://localhost:27017/yelp_camp", {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
-// Campground.create(
-//     {
-//         name: "Granite Hill",
-//         image: "https://www.nps.gov/subjects/camping/images/site-number_2.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
-//         description: "This is a huge granite hill, no bathrooms. No water. beautiful granite!"
-//     },
-//     function (err, campground) {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log("NEWLY CREATED CAMPGROUND: ");
-//             console.log(campground);
-//         }
-//     });
-
-const campgrounds = [
-    { name: "Salmon Creek", image: "https://cdn.shopify.com/s/files/1/2468/4011/products/campsite_1_600x.png?v=1582785589" },
-    { name: "Granite Hill", image: "https://www.nps.gov/subjects/camping/images/site-number_2.jpg?maxwidth=1200&maxheight=1200&autorotate=false" },
-    { name: "Mountain Goat's Rest", image: "https://www.sunset.com/wp-content/uploads/clean-campsite-getty-0419-750x0-c-default.jpg" },
-]
+seedDB();
 
 app.get("/", function (req, res) {
     res.render("landing");
@@ -71,7 +53,7 @@ app.get("/campgrounds/new", function (req, res) {
 
 // SHOW route
 app.get("/campgrounds/:id", function (req, res) {
-    Campground.findById(req.params.id, function (err, foundCampground) {
+    Campground.findById(req.params.id).populate("comments").exec(function (err, foundCampground) {
         if (err) {
             console.log(err);
         } else {
