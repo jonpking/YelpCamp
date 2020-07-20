@@ -6,17 +6,17 @@ const data = [
     {
         name: "Cloud's Rest",
         image: "https://cdn.shopify.com/s/files/1/2468/4011/products/campsite_1_600x.png?v=1582785589",
-        description: "blah blah blah"
+        description: "Quisque sed quam libero. Suspendisse eleifend vulputate lorem ac euismod. Aliquam sed lectus massa. Etiam commodo orci vel sodales malesuada. Suspendisse vel lacus nunc. Cras viverra, enim id venenatis porta, turpis felis imperdiet magna, nec pulvinar ligula nulla ac felis. Integer viverra condimentum orci, eget semper ligula tempor sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut vestibulum ac sapien blandit pellentesque. Proin egestas faucibus justo, ornare placerat lectus blandit eu."
     },
     {
         name: "Desert Mesa",
         image: "https://www.nps.gov/subjects/camping/images/site-number_2.jpg?maxwidth=1200&maxheight=1200&autorotate=false",
-        description: "blah blah blah"
+        description: "Quisque sed quam libero. Suspendisse eleifend vulputate lorem ac euismod. Aliquam sed lectus massa. Etiam commodo orci vel sodales malesuada. Suspendisse vel lacus nunc. Cras viverra, enim id venenatis porta, turpis felis imperdiet magna, nec pulvinar ligula nulla ac felis. Integer viverra condimentum orci, eget semper ligula tempor sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut vestibulum ac sapien blandit pellentesque. Proin egestas faucibus justo, ornare placerat lectus blandit eu."
     },
     {
         name: "Canyon Floor",
         image: "https://www.sunset.com/wp-content/uploads/clean-campsite-getty-0419-750x0-c-default.jpg",
-        description: "blah blah blah"
+        description: "Quisque sed quam libero. Suspendisse eleifend vulputate lorem ac euismod. Aliquam sed lectus massa. Etiam commodo orci vel sodales malesuada. Suspendisse vel lacus nunc. Cras viverra, enim id venenatis porta, turpis felis imperdiet magna, nec pulvinar ligula nulla ac felis. Integer viverra condimentum orci, eget semper ligula tempor sit amet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut vestibulum ac sapien blandit pellentesque. Proin egestas faucibus justo, ornare placerat lectus blandit eu."
     }
 ]
 
