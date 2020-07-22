@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 const Campground = require("./models/campground");
 const Comment = require("./models/comment");
 const seedDB = require("./seeds");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user");
 
 mongoose.connect("mongodb://localhost:27017/yelp_camp", {
     useNewUrlParser: true,
